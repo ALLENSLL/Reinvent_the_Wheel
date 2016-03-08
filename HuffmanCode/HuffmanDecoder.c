@@ -93,11 +93,6 @@ int DecodeH( HTNode HuffmanTree[253] )
 				j=HuffmanTree[j].rchild ;
 			}
 		}
-	//	}
-	//	else {
-	//		break;
-	//	}
-	//	ch = fgetc(fp1);
 	}  //decode
 	printf("\nSucceed\n");
 	fclose(fp2);
