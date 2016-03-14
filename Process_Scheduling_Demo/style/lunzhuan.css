@@ -1,0 +1,219 @@
+@charset "utf-8";
+/* CSS Document */
+html,body{height:100%;}
+html {
+	background-color:#000;
+}
+body {
+	width:770px;
+	height:400px;
+	margin-left:70px;
+	border-radius:5px;
+}
+/*--------------------界面一------------------*/
+#input1 {
+	position:absolute;
+	left: 200px;
+	top: 10px;
+	text-align:center;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	color:#fff;
+	border:2px solid #333;
+	padding:20px 120px; 
+	background:#000;
+	width:400px;
+	border-radius:15px;
+}
+#processsum {
+	position:absolute;
+	left: 180px;
+	top: 30px;
+}
+#timeslice {
+	position:absolute;
+	left: 180px;
+	top: 70px;
+}
+#processsum,#timeslice {
+	width:140px;
+	height:25px;
+	font-size:15px;
+	transition:all 0.30s ease-in-out;
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	
+	border:#f39 1px solid;
+	border-radius:3px;
+	outline:none;
+}
+#processsum:focus,#timeslice:focus{
+	box-shadow:0 0 50px #f39;
+	-webkit-box-shadow:0 0 50px #f39;
+	-moz-box-shadow:0 0 50px #f39;
+}
+#input1button1 {
+	position:relative;
+	left: 60px;
+	top: -10px;
+	text-decoration:none;
+	background:#f39;
+	color:white;
+	padding: 20px 25px 20px 25px;
+	font:20px '微软雅黑';
+	border-radius:3px;
+	
+	-webkit-transition:all linear 0.15s;
+	-moz-transition:all linear 0.15s;
+	transition:all linear 0.15s;
+}
+#input1button1:hover{
+	background:#b40055;
+}
+/*---------------界面二---------------*/
+#input2 {
+	height:120px;
+}
+#input2 div {
+	/*float:left;*/
+}
+table#table {
+	float:left;
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#fff;
+	border-width: 1px;
+	border-color: #000;
+	border-collapse: collapse;
+}
+table#table th {
+	background:#000 url('../images/cell-blue.jpg');
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #999999;
+}
+table#table td {
+	background:#000 url('../images/cell-grey.jpg');
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #999999;
+}
+#input2 td input {
+	width:40px;
+	outline:none;
+}
+#input2 td input:focus{
+	box-shadow:0 0 12px #f39;
+	-webkit-box-shadow:0 0 12px #f39;
+	-moz-box-shadow:0 0 12px #f39;
+}
+#return {
+	margin-left:20px;
+}
+#define {
+	margin-left:20px;
+	margin-top:20px;
+}
+#return,#define {
+	text-decoration:none;
+	background:#f39;
+	color:white;
+	padding: 10px 25px 10px 25px;
+	font:20px '微软雅黑';
+	border-radius:3px;
+	
+	-webkit-transition:all linear 0.15s;
+	-moz-transition:all linear 0.15s;
+	transition:all linear 0.15s;
+}
+#return:hover,#define:hover {
+	background:#b40055;
+}
+/*---------------界面三---------------*/
+#input3title {
+	/*position:absolute;
+	left: 110px;
+	top: 160px;*/
+	color:#f39;
+	height:30px;
+}
+#input3 {
+	height:176px;
+}
+#input3 div {
+	float:left;
+	width:20px;
+	height:20px;
+	border:2px solid #fff;
+	border-radius:5px;
+	color:#000;
+	text-align:center;
+	font-size:15px;
+	font-weight: bold;
+}
+.drawws {
+	background:rgb(255,255,255);
+}
+.drawas {
+	background:rgb(128,255,255);
+}
+.drawbs {
+	background:rgb(0,0,255);
+}
+.drawcs {
+	background:rgb(255,255,0);
+}
+.drawds {
+	background:rgb(0,255,0);
+}
+.drawes {
+	background:rgb(255,128,255);
+}
+.drawfs {
+	background:rgb(255,128,0);
+}
+.drawgs {
+	background:rgb(128,255,255);
+}
+.drawhs {
+	background:rgb(128,0,0);
+}
+.drawis {
+	background:rgb(64,0,128);
+}
+.drawjs {
+	background:rgb(128,128,128);
+}
+/*---------------界面四---------------*/
+#input4 {
+	/*margin-left:40px;*/
+}
+#input4 div {
+	/*float:left;*/
+}
+#table2 {
+	float:left;
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#fff;
+	border-width: 1px;
+	border-color: #000;
+	border-collapse: collapse;
+}
+#table2 th {
+	background:#000 url('../images/cell-blue.jpg');
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #999999;
+}
+#table2 td {
+	background:#000 url('../images/cell-grey.jpg');
+	color:#000;
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #999999;
+}
+/*----------------------------------------*/

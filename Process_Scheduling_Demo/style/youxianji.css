@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* CSS Document */
+html,body {
+	width:510px;
+	height:330px;
+}
+html{
+	overflow-y:scroll;
+	background-color:#666;
+}
+body{
+	margin-left:70px;
+	border-radius:5px;
+}

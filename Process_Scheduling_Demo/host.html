@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!OS homework coding by ALLENSLL in Jun 23th,2015 >
+<HTML>
+	<HEAD>
+		<TITLE> 操作系统进程调度演示 </TITLE>
+		<META NAME="Generator" CONTENT="EditPlus">
+		<META NAME="Author" CONTENT="">
+		<META NAME="Keywords" CONTENT="">
+		<META NAME="Description" CONTENT="">
+		<meta charset="gb2312">
+		<link rel="stylesheet" type="text/css" href="style/basic.css"/>
+		<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="js/select.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('.all>li').mouseover(function(e) {
+					$(this).children().stop().slideDown(300);
+				});
+				$('.all>li').mouseout(function(e) {
+					$(this).children().stop().slideUp(300);
+				});
+			})
+		</script>
+	</HEAD>
+
+	<body>
+		<div id="left">
+			<div id="logo"></div>
+			<div id="nav">
+				<ol class="all">
+					<li class="li01">进程调度
+						<ul class="li_01">
+							<li><a onclick="Get_1_1()">FCFS调度</a></li>
+							<li><a onclick="Get_1_2()">SJF调度</a></li>
+							<li><a onclick="Get_1_3()">轮转调度</a></li>
+						</ul>
+				</ol>
+			</div>
+		</div>
+		<p id="title">操作系统进程调度演示</p>
+		<iframe id="exe" frameborder="0"></iframe>
+	</body>
+</HTML>
