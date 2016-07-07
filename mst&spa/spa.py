@@ -45,7 +45,7 @@ def floyd(graph):
             for k in range(length):
                 if k == j:
                     continue
-                new_len = graph[j][k] + graph[k][j]
+                new_len = graph[i][k] + graph[k][j]
                 if graph[i][j] > new_len:
                     graph[i][j] = new_len
                     new_node = k
