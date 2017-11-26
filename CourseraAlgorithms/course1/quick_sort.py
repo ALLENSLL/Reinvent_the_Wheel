@@ -28,7 +28,6 @@ def quick_sort(numbers, count, start=-1, end=-1):
                 numbers[j], numbers[i] = numbers[i], numbers[j]
                 i += 1
         numbers[start], numbers[i-1] = numbers[i-1], numbers[start]
-        # count[0] += 1
 
         quick_sort(numbers, count, start, i-2)
         quick_sort(numbers, count, i, end)
