@@ -1,6 +1,17 @@
 import math
 
 
+def convert(numbers):
+    n = len(numbers)
+    graph = []
+    for i in range(n):
+        graph.append([])
+        m = len(numbers[i])
+        for j in range(1, m):
+            graph[i].append([int(numbers[i][0]), int(numbers[i][j])])
+    return graph
+
+
 def load(filename):
     f = open(filename, 'r')
     numbers = []
@@ -10,7 +21,7 @@ def load(filename):
         numbers.append(line)
         line = f.readline()
     f.close()
-    return numbers
+    return convert(numbers)
 
 
 def random_contraction(graph):
@@ -34,5 +45,5 @@ def find_min_cut(graph, n_it):
 
 if __name__ == '__main__':
     a = load('test_random_contraction.txt')
-    n, cut = find_min_cut(a)
-    print(n)
+    # n, cut = find_min_cut(a)
+    print(a[0])
