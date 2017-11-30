@@ -1,4 +1,6 @@
 import math
+import random
+import copy
 
 
 def convert(numbers):
@@ -6,6 +8,7 @@ def convert(numbers):
     graph = []
     for i in range(n):
         graph.append([])
+        graph[i].append([int(numbers[i][0])])
         m = len(numbers[i])
         for j in range(1, m):
             graph[i].append([int(numbers[i][0]), int(numbers[i][j])])
@@ -25,10 +28,21 @@ def load(filename):
 
 
 def random_contraction(graph):
-    graph_copy = graph
+    graph_copy = copy.deepcopy(graph)
     while len(graph_copy) > 2:
+        # flatten_graph = [edge for point in graph_copy for edge in point]
+        i = random.choice(range(len(graph_copy)))
+        j = random.choice(range(len(graph_copy[i])))
+        choiced_edge = graph_copy[i][j]
+        for j in range(len(graph_copy)):
+            if choiced_edge[0] in graph_copy[j][0]:
+                break
 
+        for k in range(len(graph_copy[i])):
+            if graph_copy[i][k]
 
+        if
+        graph_copy[choiced_edge[0]].append(graph_copy[])
     return cut_num, cut
 
 
