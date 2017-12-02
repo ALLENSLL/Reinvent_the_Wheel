@@ -32,17 +32,19 @@ def random_contraction(graph):
     while len(graph_copy) > 2:
         # flatten_graph = [edge for point in graph_copy for edge in point]
         i = random.choice(range(len(graph_copy)))
-        j = random.choice(range(len(graph_copy[i])))
-        choiced_edge = graph_copy[i][j]
+        j = random.choice(range(len(graph_copy[i])-1))
+        choiced_edge = graph_copy[i][j+1]
         for j in range(len(graph_copy)):
-            if choiced_edge[0] in graph_copy[j][0]:
+            if choiced_edge[1] in graph_copy[j][0]:
                 break
+        for k in range(len(graph_copy[j])-1):
+            if not graph_copy[j][k+1][1] in graph_copy[i][0]:
+                graph_copy[i].append(graph_copy[j][k+1])
+        graph_copy[i][0] += graph_copy[j][0]
+        graph_copy.pop(j)
 
-        for k in range(len(graph_copy[i])):
-            if graph_copy[i][k]
-
-        if
-        graph_copy[choiced_edge[0]].append(graph_copy[])
+    cut = graph_copy[0][1:] + graph_copy[1][1:]
+    cut_num = len(cut)
     return cut_num, cut
 
 
@@ -51,7 +53,7 @@ def find_min_cut(graph, n_it):
     mincut = []
     for i in range(n_it):
         cut_num, cut = random_contraction(graph)
-        if cut_num < mincut:
+        if cut_num < mincut_num:
             mincut = cut
             mincut_num = cut_num
     return mincut_num, mincut
@@ -59,5 +61,5 @@ def find_min_cut(graph, n_it):
 
 if __name__ == '__main__':
     a = load('test_random_contraction.txt')
-    # n, cut = find_min_cut(a)
-    print(a[0])
+    n, cut = find_min_cut(a,1)
+    print(len(a))
