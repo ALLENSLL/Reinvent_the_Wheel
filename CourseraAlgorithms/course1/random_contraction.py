@@ -37,13 +37,17 @@ def random_contraction(graph):
         for j in range(len(graph_copy)):
             if choiced_edge[1] in graph_copy[j][0]:
                 break
-        for k in range(len(graph_copy[j])-1):
-            if not graph_copy[j][k+1][1] in graph_copy[i][0]:
-                graph_copy[i].append(graph_copy[j][k+1])
         graph_copy[i][0] += graph_copy[j][0]
+        graph_copy[i] += graph_copy[j][1:]
+        k = 1
+        while k < len(graph_copy[i]):
+            if graph_copy[i][k][1] in graph_copy[i][0]:
+                graph_copy[i].pop(k)
+            else:
+                k += 1
         graph_copy.pop(j)
 
-    cut = graph_copy[0][1:] + graph_copy[1][1:]
+    cut = graph_copy[0][1:]
     cut_num = len(cut)
     return cut_num, cut
 
@@ -61,5 +65,5 @@ def find_min_cut(graph, n_it):
 
 if __name__ == '__main__':
     a = load('test_random_contraction.txt')
-    n, cut = find_min_cut(a,1)
-    print(len(a))
+    n, cut = find_min_cut(a, len(a))
+    print(n)
