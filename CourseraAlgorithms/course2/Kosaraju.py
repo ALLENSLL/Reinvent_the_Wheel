@@ -1,6 +1,10 @@
 import copy
+import sys, threading
 from collections import Counter
 import numpy as np
+
+sys.setrecursionlimit(800000)
+threading.stack_size(67108864)
 
 
 def reverse_graph(edges):
@@ -83,7 +87,13 @@ def count(leaders):
     return res[::-1]
 
 
-if __name__ == '__main__':
+def main():
+    # a = load('test_SCC2.txt')
+    # leaders = kosaraju(875714, a)
     a = load('test_SCC.txt')
     leaders = kosaraju(12, a)
     print(count(leaders))
+
+if __name__ == '__main__':
+    thread = threading.Thread(target=main)
+    thread.start()
