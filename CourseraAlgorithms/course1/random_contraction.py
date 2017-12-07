@@ -34,6 +34,7 @@ def random_contraction(graph):
         i = random.choice(range(len(graph_copy)))
         j = random.choice(range(len(graph_copy[i])-1))
         choiced_edge = graph_copy[i][j+1]
+        graph_copy[i].pop(j+1)
         for j in range(len(graph_copy)):
             if choiced_edge[1] in graph_copy[j][0]:
                 break
@@ -41,6 +42,7 @@ def random_contraction(graph):
             if not graph_copy[j][k+1][1] in graph_copy[i][0]:
                 graph_copy[i].append(graph_copy[j][k+1])
         graph_copy[i][0] += graph_copy[j][0]
+        # graph_copy[i].pop()
         graph_copy.pop(j)
 
     cut = graph_copy[0][1:] + graph_copy[1][1:]
