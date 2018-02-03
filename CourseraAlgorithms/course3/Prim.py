@@ -1,47 +1,5 @@
 import heapq
-
-
-class Graph:
-    def __init__(self, n_vertices, n_edges):
-        self.n_vertices = n_vertices
-        self.n_edges = n_edges
-        self.graph = list()
-
-        for i in range(n_vertices):
-            self.graph.append([])
-
-    def add(self, edge):
-        self.graph[edge.start-1].append(edge)
-        self.graph[edge.end-1].append(edge)
-
-    def getCost(self, start, end):
-        for edge in self.graph[start-1]:
-            if edge.start == end or edge.end == end:
-                return edge.cost
-        return float('inf')
-
-
-class Edge:
-    def __init__(self, start, end, cost):
-        self.start = start
-        self.end = end
-        self.cost = cost
-
-
-class Vertice:
-    def __init__(self, index=None, parents=None, key=float('inf')):
-        self.index = index
-        self.parents = parents
-        self.key = key
-
-    def __eq__(self, other):
-        return self.key == other.key
-
-    def __gt__(self, other):
-        return self.key > other.key
-
-    def __lt__(self, other):
-        return self.key < other.key
+from graph import *
 
 
 def load(filename):
@@ -49,7 +7,7 @@ def load(filename):
         line = f.readline()
         line = line.split()
         n_vertices, n_edges = int(line[0]), int(line[1])
-        graph = Graph(n_vertices, n_edges)
+        graph = Graph(n_vertices)
         for i in range(n_edges):
             line = f.readline().split()
             edge = Edge(int(line[0]), int(line[1]), int(line[2]))
