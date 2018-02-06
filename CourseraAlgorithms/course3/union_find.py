@@ -1,7 +1,7 @@
 class UnionFind:
 
     def __init__(self):
-        self.num_weights = {}
+        self.num_ranks = {}
         self.leaders = {}
         self.num_to_objects = {}
         self.objects_to_num = {}
@@ -14,7 +14,7 @@ class UnionFind:
     def find(self, obj):
         if obj not in self.objects_to_num:
             n_obj = len(self.objects_to_num)
-            self.num_weights[n_obj] = 1
+            self.num_ranks[n_obj] = 0
             self.objects_to_num[obj] = n_obj
             self.num_to_objects[n_obj] = obj
             self.leaders[n_obj] = n_obj
@@ -34,13 +34,18 @@ class UnionFind:
         if leader1 != leader2:
             num1 = self.objects_to_num[leader1]
             num2 = self.objects_to_num[leader2]
-            w1 = self.num_weights[num1]
-            w2 = self.num_weights[num2]
-            if w1 < w2:
-                num1, num2 = num2, num1
-            self.num_weights[num1] = w1 + w2
-            del self.num_weights[num2]
-            self.leaders[num2] = num1
+            w1 = self.num_ranks[num1]
+            w2 = self.num_ranks[num2]
+            if w1 == w2:
+                self.leaders[num2] = num1
+                self.num_ranks[num2] += 1
+            elif w1 < w2:
+                self.leaders[num1] = num2
+            else:
+                self.leaders[num2] = num1
+
+    def count(self):
+        return len(set(self.leaders.values()))
 
     def __str__(self):
         sets = {}
