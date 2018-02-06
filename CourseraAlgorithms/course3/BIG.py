@@ -52,5 +52,4 @@ class BigCluster:
 if __name__ == "__main__":
     import  cProfile
     cProfile.run('big = BigCluster("clustering_big.txt")')
-    # big = BigCluster("clustering_big.txt")
     cProfile.run('print(big.clustering())')
