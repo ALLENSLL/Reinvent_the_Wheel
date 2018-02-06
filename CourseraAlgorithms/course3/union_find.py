@@ -48,7 +48,7 @@ class UnionFind:
             self.count -= 1
 
     def count(self):
-        return len(set(self.leaders.values()))
+        return self.count
 
     # def __str__(self):
     #     sets = {}
