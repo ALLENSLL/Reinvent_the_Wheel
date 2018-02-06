@@ -1,6 +1,8 @@
 import itertools
 from union_find import UnionFind
 
+# test cases https://github.com/beaunus/stanford-algs/tree/master/testCases/course3/assignment2Clustering/question2
+
 
 class BigCluster:
 
@@ -22,6 +24,7 @@ class BigCluster:
         for par in itertools.combinations(possible_dis, 2):
             possible_dis.append(sum(par))
 
+        possible_dis.remove(0)
         uf = UnionFind()
         need_union = []
         for i in self._vertices.keys():
@@ -36,7 +39,7 @@ class BigCluster:
             if uf.find(v) != uf.find(u):
                 uf.union(v, u)
 
-        return uf.count()
+        return uf.count
 
     def _hamming(self, v, u):
         dis = 0
@@ -48,6 +51,6 @@ class BigCluster:
 
 if __name__ == "__main__":
     import  cProfile
-    # cProfile.run('big = BigCluster("clustering_big.txt")')
-    big = BigCluster("clustering_big.txt")
-    print(big.clustering())
+    cProfile.run('big = BigCluster("clustering_big.txt")')
+    # big = BigCluster("clustering_big.txt")
+    cProfile.run('print(big.clustering())')

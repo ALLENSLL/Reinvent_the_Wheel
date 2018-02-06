@@ -1,11 +1,12 @@
 class UnionFind:
 
     def __init__(self):
+        self.count = 0
         self.num_ranks = {}
         self.leaders = {}
         self.num_to_objects = {}
         self.objects_to_num = {}
-        self.__repr__ = self.__str__
+        # self.__repr__ = self.__str__
 
     def insert_objects(self, objects):
         for obj in objects:
@@ -18,6 +19,7 @@ class UnionFind:
             self.objects_to_num[obj] = n_obj
             self.num_to_objects[n_obj] = obj
             self.leaders[n_obj] = n_obj
+            self.count += 1
             return obj
         need_update_leader = [self.objects_to_num[obj]]
         par = self.leaders[need_update_leader[-1]]
@@ -43,18 +45,19 @@ class UnionFind:
                 self.leaders[num1] = num2
             else:
                 self.leaders[num2] = num1
+            self.count -= 1
 
     def count(self):
         return len(set(self.leaders.values()))
 
-    def __str__(self):
-        sets = {}
-        for i in range(len(self.objects_to_num)):
-            sets[i] = []
-        for i in self.objects_to_num:
-            sets[self.objects_to_num[self.find(i)]].append(i)
-        out = []
-        for i in sets.values():
-            if i:
-                out.append(repr(i))
-        return ','.join(out)
+    # def __str__(self):
+    #     sets = {}
+    #     for i in range(len(self.objects_to_num)):
+    #         sets[i] = []
+    #     for i in self.objects_to_num:
+    #         sets[self.objects_to_num[self.find(i)]].append(i)
+    #     out = []
+    #     for i in sets.values():
+    #         if i:
+    #             out.append(repr(i))
+    #     return ','.join(out)
