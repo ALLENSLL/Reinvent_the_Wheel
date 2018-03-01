@@ -28,11 +28,11 @@ class FloyedWarshall:
                         self._distances[i][j] = dis
 
                     if i == j and self._distances[i][j] < 0:
-                        return "Graph has negative cycle!"
+                        return "Graph has negative cycle"
         return min(min(self._distances, key=lambda x: min(x)))
 
 
 if __name__ == '__main__':
     # cProfile.run('floyedWarshall = FloyedWarshall("g1.txt")')
-    floyedWarshall = FloyedWarshall('g2.txt')
+    floyedWarshall = FloyedWarshall('g1.txt')
     print(floyedWarshall.run())
